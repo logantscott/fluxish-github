@@ -6,15 +6,16 @@ export const initialState = {
     following: 0,
     repos: 0
   },
-  repositories: {
-    name: null,
-    description: null,
-    language: null
-  }
+  repositories: [],
+  searchInput: ''
 };
 
 export default function reducer(state, action) {
   switch(action.type) {
+    case 'GET_USER_DETAILS':
+      return { ...state, user: action.payload };
+    case 'GET_REPOSITORIES':
+      return { ...state, repositories: action.payload };
     default: 
       return state;
   }
